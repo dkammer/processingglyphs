@@ -6,7 +6,7 @@ Small glyph library for Processing.
 
 <img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" width="600">
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Star Glyphs" width="600">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" width="600">
 
 ## Installation and Running
 
