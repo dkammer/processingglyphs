@@ -46,11 +46,11 @@ List<float[]> values  // or: float[] values
 Provide the data for the glyph. For each attribute or dimension, you can specify the minimum values (e.g. from 0 to 0, or minus 10 to 10, ...). The maximum values are needed to scale the values in each axis of the glyph. You need to provide these as well. Finally, provide a list of list of values for each dimension of your data points. You can also provide a single list of values for only one data item. Note that not every glyph type is suitable to represent multiple data points at once. Star glyphs can represent up to 5-6 individual data points simultaneously, flower glyphs and other glyph types cannot do this in a sensible manner.
 
 ```java
-color[] colors
+color[] colors  // or: color c
 boolean drawAxes
 ```
 
-If you provide multiple data points to display in one glyph, you can provide an array of different colors. Otherwise, random colors are chosen. You can also specify whether to show axes or not. 
+If you provide multiple data points to display in one glyph, you can provide an array of different colors or a single color if you only pass the values of a single data item. Otherwise, random colors are chosen. You can also specify whether to show axes or not. 
 
 ## Usage and Example
 
