@@ -37,7 +37,6 @@ void draw() {
         flowerGlyph(xo, yo, glyphSize, min, max, list, col, true);
         break;
     }
-    starGlyph(xo, yo, glyphSize, min, max, list, col, true);
     xo += 2 * (glyphSize + padding);
     if (columnCount++ % maxColumns == 0) {
       columnCount = 1;

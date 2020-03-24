@@ -20,7 +20,7 @@ void flowerGlyph(float originX, float originY, float lineLength, float[] minValu
       float s = line / 16;
       noStroke();
       strokeWeight(0.75);
-      fill(c, 50);
+      fill(c, 200);
       beginShape();    
 
       curveVertex(0, 0); // 1
