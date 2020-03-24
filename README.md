@@ -91,3 +91,4 @@ void draw() {
   * Add more glyphs (pie charts, etc.)
   * Add possibility to print a legend for the dimensions
   * Make transparency configurable
+  * Create class for glyph configuration
