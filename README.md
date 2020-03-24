@@ -85,3 +85,9 @@ void draw() {
    flowerGlyph(500, 200, 100, min, max, vals2, color(0, 159, 227), true);
 }
 ```
+
+## TODO
+
+  * Add more glyphs (pie charts, etc.)
+  * Add possibility to print a legend for the dimensions
+  * Make transparency configurable
