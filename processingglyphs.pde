@@ -5,6 +5,7 @@ float xo;
 float yo; 
 boolean record = false;
 boolean drawAxes = true;
+int numDataItems = 3;
 enum Glyph { 
   STAR, FLOWER, BAR
 };
@@ -27,11 +28,11 @@ void draw() {
   int columnCount = 1;
   for (int stars = 0; stars < 50; stars++) { 
     List<float[]> list = new ArrayList<float[]>();
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < numDataItems; i++) {
       float[] vals = { random(10), random(10), random(10), random(10), random(10), random(10), random(10), random(10), random(10) };
       list.add(vals);
     }
-    color[] col = { color(70, 70, 70), color(229, 57, 193), color(0, 159, 227) };
+    color[] col = { color(0, 159, 227), color(229, 57, 193), color(70, 70, 70) };
     switch (selectedGlyph) {
     case STAR:
       starGlyph(xo, yo, glyphSize, min, max, list, col, drawAxes);
@@ -69,6 +70,12 @@ void keyPressed() {
     } else if (selectedGlyph == Glyph.BAR) {
       selectedGlyph = Glyph.FLOWER;
     }
+  }
+  if (key == '+') {
+    numDataItems++;
+  }
+  if (key == '-' && numDataItems > 1) {
+    numDataItems--;
   }
   if (key == ' ') {
     endRecord();
