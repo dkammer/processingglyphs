@@ -4,7 +4,8 @@ import processing.pdf.*;
 float xo; 
 float yo; 
 boolean record = false;
-enum Glyph { STAR, FLOWER };
+boolean drawAxes = true;
+enum Glyph { STAR, FLOWER, BAR };
 Glyph selectedGlyph = Glyph.STAR;
 
 void setup() { 
@@ -31,10 +32,13 @@ void draw() {
     color[] col = { color(70, 70, 70), color(229, 57, 193), color(0, 159, 227) };
     switch (selectedGlyph) {
       case STAR:
-        starGlyph(xo, yo, glyphSize, min, max, list, col, true);
+        starGlyph(xo, yo, glyphSize, min, max, list, col, drawAxes);
         break;
       case FLOWER:
-        flowerGlyph(xo, yo, glyphSize, min, max, list, col, true);
+        flowerGlyph(xo, yo, glyphSize, min, max, list, col, drawAxes);
+        break;
+      case BAR:
+        barGlyph(xo, yo, glyphSize, min, max, list, col, drawAxes);
         break;
     }
     xo += 2 * (glyphSize + padding);
@@ -52,10 +56,15 @@ void keyPressed() {
   if (key == 'r') {
     record = !record;
   }
+  if (key == 'a') {
+    drawAxes = !drawAxes;
+  }
   if (key == 'g') {
-    if (selectedGlyph == Glyph.FLOWER) {
+    if (selectedGlyph == Glyph.STAR) {
+      selectedGlyph = Glyph.BAR;
+    } else if (selectedGlyph == Glyph.FLOWER) {
       selectedGlyph = Glyph.STAR;
-    } else {
+    } else if (selectedGlyph == Glyph.BAR) {
       selectedGlyph = Glyph.FLOWER;
     }
   }
