@@ -6,6 +6,11 @@ Small glyph library for Processing.
 
 <img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" width="600">
 
+## Installation and Running
+
+1. The [Processing IDE](https://processing.org/download/) is required to launch the program. 
+2. After installation of Processing, download or clone the repository and launch the Processing Sketch by opening the file _processingglyphs.pde_
+
 ## Running Demo
 
 Inside the main sketch, random data is created to showcase the glyphs. Hit 'r' on the keyboard to record PDF files of each frame. Press 'r' again to deactivate recording. Press 'g' to switch between the glyph types. Hit space bar to terminate the demo program.
