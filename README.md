@@ -1,5 +1,10 @@
 # Processing Glyphs
+
 Small glyph library for Processing.
+
+<img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" width="600">
+
+<img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" width="600">
 
 ## Running Demo
 
