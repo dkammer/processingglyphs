@@ -1,11 +1,17 @@
+void starGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, float[] values, color[] colors, boolean drawAxes) {
+  List<float[]> valuesList = new ArrayList<float[]>();
+  valuesList.add(values);
+  starGlyph(originX, originY, lineLength, minValues, maxValues, valuesList, colors, drawAxes);
+}
+
 void starGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, List<float[]> values, color[] colors, boolean drawAxes) {
-  int numTasks = maxValues.length;
+  int numDimensions = maxValues.length;
   List<List<PVector>> polygons = new ArrayList<List<PVector>>();
 
-  for (int i = 0; i < numTasks; i++) {
+  for (int i = 0; i < numDimensions; i++) {
     pushMatrix(); 
     translate(originX, originY);
-    rotate(radians(360/numTasks*i)-radians(90));
+    rotate(radians(360/numDimensions*i)-radians(90));
 
     // draw axes
     if (drawAxes) {

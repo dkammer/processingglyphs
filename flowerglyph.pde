@@ -1,11 +1,16 @@
-void flowerGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, List<float[]> values, color[] colors, boolean drawAxes) {
-  int numTasks = maxValues.length;
-  List<List<PVector>> polygons = new ArrayList<List<PVector>>();
+void flowerGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, float[] values, color[] colors, boolean drawAxes) { 
+  List<float[]> valuesList = new ArrayList<float[]>();
+  valuesList.add(values);
+  flowerGlyph(originX, originY, lineLength, minValues, maxValues, valuesList, colors, drawAxes);
+}
 
-  for (int i = 0; i < numTasks; i++) {
+void flowerGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, List<float[]> values, color[] colors, boolean drawAxes) {
+  int numDimensions = maxValues.length;
+
+  for (int i = 0; i < numDimensions; i++) {
     pushMatrix(); 
     translate(originX, originY);
-    rotate(radians(360/numTasks*i)-radians(90));
+    rotate(radians(360/numDimensions*i)-radians(90));
 
     // draw axes
     if (drawAxes) {
