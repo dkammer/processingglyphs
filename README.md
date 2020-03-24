@@ -78,13 +78,10 @@ void draw() {
    float[] vals2 = { random(10), random(10), random(10), random(10), random(10), 
                      random(10), random(10), random(10), random(10) };
 
-   // create some nice colors
-   // we only show one data item per glyph so only one color is needed
-   color[] col1 = { color(229, 57, 193) };
-   color[] col2 = { color(0, 159, 227) };
-
    // now draw two different glyphs in different locations
-   starGlyph(200, 200, 100, min, max, vals1, col1, true);
-   flowerGlyph(500, 200, 100, min, max, vals2, col2, true);
+   // note that you can also pass arrays of values and colors
+   // when you want a glyph to display more than one data item
+   starGlyph(200, 200, 100, min, max, vals1, color(229, 57, 193), true);
+   flowerGlyph(500, 200, 100, min, max, vals2, color(0, 159, 227), true);
 }
 ```

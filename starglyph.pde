@@ -1,6 +1,7 @@
-void starGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, float[] values, color[] colors, boolean drawAxes) {
+void starGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, float[] values, color c, boolean drawAxes) {
   List<float[]> valuesList = new ArrayList<float[]>();
   valuesList.add(values);
+  color colors[] = { c };
   starGlyph(originX, originY, lineLength, minValues, maxValues, valuesList, colors, drawAxes);
 }
 

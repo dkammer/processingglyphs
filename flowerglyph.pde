@@ -1,6 +1,7 @@
-void flowerGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, float[] values, color[] colors, boolean drawAxes) { 
+void flowerGlyph(float originX, float originY, float lineLength, float[] minValues, float[] maxValues, float[] values, color c, boolean drawAxes) { 
   List<float[]> valuesList = new ArrayList<float[]>();
-  valuesList.add(values);
+  valuesList.add(values);  
+  color colors[] = { c };
   flowerGlyph(originX, originY, lineLength, minValues, maxValues, valuesList, colors, drawAxes);
 }
 
