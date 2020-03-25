@@ -1,3 +1,7 @@
+enum GlyphType { 
+  STAR, FLOWER, BAR
+};
+
 void drawAxis(float lineLength) {
   stroke(50, 50, 50);
   strokeWeight(0.5);

@@ -15,7 +15,16 @@ Small glyph library for Processing.
 
 ## Running Demo
 
-Inside the main sketch, random data is created to showcase the glyphs. Hit 'r' on the keyboard to record PDF files of each frame. Press 'r' again to deactivate recording. Press 'g' to switch between the glyph types. Pressing 'a' will switch between showing axes and hiding them. Using '+' and '-' you can increase and decrease the amount of data items shown in one glyph. Hit space bar to terminate the demo program.
+Inside the main sketch, random data is created to showcase the glyphs. 
+
+   * Hit 'r' on the keyboard to record PDF files of each frame. Press 'r' again to deactivate recording. 
+   * Press 'g' to switch between the glyph types. 
+   * Pressing 'a' will switch between showing axes and hiding them. 
+   * Using '+' and '-' you can increase and decrease the amount of data items shown in one glyph. 
+   * Press 'p' to pause the program and again to continue the loop.
+   * Pressing UP and DOWN on the keyboard will make the regeneration of glyphs faster or slower.
+   * Press 'd' to stop creating new data items (this will effectively pause the program as well). This is useful to compare glyph types for the same data.
+   * Hit space bar to terminate the demo program.
 
 ## API
 
@@ -92,3 +101,6 @@ void draw() {
   * Add possibility to print a legend for the dimensions
   * Make transparency configurable
   * Create class for glyph configuration
+  * Create class for reading CSV data and displaying glyphs
+  * Display hotkeys in demo program
+  * <strike>Remove busy wait from demo program</strike>
