@@ -8,6 +8,8 @@ Small glyph library for Processing.
 
 <img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" width="600">
 
+<img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Bar Glyphs" width="600">
+
 ## Installation and Running
 
 1. The [Processing IDE](https://processing.org/download/) is required to launch the program. 
@@ -21,9 +23,8 @@ Inside the main sketch, random data is created to showcase the glyphs.
    * Press 'g' to switch between the glyph types. 
    * Pressing 'a' will switch between showing axes and hiding them. 
    * Using '+' and '-' you can increase and decrease the amount of data items shown in one glyph. 
-   * Press 'p' to pause the program and again to continue the loop.
+   * Press 'p' to pause the program by stopping to create new data items. This is useful to compare glyph types for the same data. Press 'p' again to continue.
    * Pressing UP and DOWN on the keyboard will make the regeneration of glyphs faster or slower.
-   * Press 'd' to stop creating new data items (this will effectively pause the program as well). This is useful to compare glyph types for the same data.
    * Hit space bar to terminate the demo program.
 
 ## API
@@ -99,8 +100,8 @@ void draw() {
 
   * Add more glyphs (pie charts, etc.)
   * Add possibility to print a legend for the dimensions
-  * Make transparency configurable
   * Create class for glyph configuration
   * Create class for reading CSV data and displaying glyphs
   * Display hotkeys in demo program
+  * <strike>Make transparency configurable</strike>
   * <strike>Remove busy wait from demo program</strike>

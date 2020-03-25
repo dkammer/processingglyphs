@@ -25,7 +25,7 @@ void flowerGlyph(float originX, float originY, float lineLength, float[] minValu
       float line = map(val[i], minValues[i], maxValues[i], 0, lineLength);
       float s = line / 16;
       noStroke();
-      fill(c, 200);
+      fill(scaleColor(line, lineLength, c));
       beginShape();    
 
       curveVertex(0, 0); // 1
