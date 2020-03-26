@@ -49,19 +49,18 @@ void draw() {
       }
       valuesList.add(values);
     }
-    color[] col = { color(0, 159, 227, 200), color(229, 57, 193, 200), color(70, 70, 70, 200) };
     switch (selectedGlyph) {
     case STAR:
-      starGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), col, drawAxes);
+      starGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
     case FLOWER:
-      flowerGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), col, drawAxes);
+      flowerGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
     case BAR:
-      barGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), col, drawAxes);
+      barGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
     case PIEEXPLOSION:
-      pieexplosionGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), col, drawAxes);
+      pieexplosionGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
     }
     xo += 2 * (glyphSize + padding);
@@ -80,6 +79,11 @@ void keyPressed() {
   }
   if (key == 'a') {
     drawAxes = !drawAxes;
+  }
+  if (key == 'c') {
+    for (int i = 0; i < randomColors.length; i++) {
+      randomColors[i] = 0;
+    }
   }
   if (key == 'g') {
     if (selectedGlyph == GlyphType.STAR) {

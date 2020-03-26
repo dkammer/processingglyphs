@@ -21,6 +21,7 @@ Inside the main sketch, random data is created to showcase the glyphs.
 
    * Hit 'r' on the keyboard to record PDF files of each frame. Press 'r' again to deactivate recording. 
    * Press 'g' to switch between the glyph types. 
+   * Pressing 'c' will clear the randomly generated colors and create new ones.
    * Pressing 'a' will switch between showing axes and hiding them. 
    * Using '+' and '-' you can increase and decrease the amount of data items shown in one glyph. 
    * Press 'p' to pause the program by stopping to create new data items. This is useful to compare glyph types for the same data. Press 'p' again to continue.
