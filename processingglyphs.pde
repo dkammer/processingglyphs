@@ -17,16 +17,16 @@ List<List<float[]>> valuesList = new ArrayList<List<float[]>>();
 String statusText = "";
 
 void setup() { 
-  size(700, 740);
+  size(700, 700);
 }
 
 void drawStatusbar() {
-  fill(80,80,80);
+  fill(80,80,80, 200);
   noStroke();
-  rect(0,700,700,40);
+  rect(0,660,700,40);
   fill(240,240,240);
-  text("[p] Pause [r] Record [g] Glyphs [c] Colors [a] Axes [+][-] Items [UP][DOWN] Speed [h] Hide Status [SPACE] Quit", 8, 716);
-  text(":: " + statusText, 8, 733);
+  text("[p] Pause [r] Record [g] Glyphs [c] Colors [a] Axes [+][-] Items [UP][DOWN] Speed [h] Hide Status [SPACE] Quit", 8, 676);
+  text(":: " + statusText, 8, 693);
 }
 
 void draw() {
@@ -109,31 +109,30 @@ void keyPressed() {
   }
   if (key >= 0x30 && key <= 0x39) {
     int num = Integer.parseInt(""+key);
-    if(num > 0 && num < 6) selectedGlyph = GlyphType.values()[num-1];
+    if(num > 0 && num < 6) {
+      selectedGlyph = GlyphType.values()[num-1];
+      statusText = "Changed glyph type to " + selectedGlyph.toString();
+    }
   }
   if (key == 'g') {
     switch (selectedGlyph) {
       case STAR:
         selectedGlyph = GlyphType.FLOWER;
-        statusText = "Flower Glyphs.";
         break;
       case FLOWER:
         selectedGlyph = GlyphType.PIE;
-        statusText = "Pie Glyphs.";
         break;
       case PIE:
         selectedGlyph = GlyphType.PIEEXPLOSION;
-        statusText = "Pie Explosion Glyphs.";
         break;
       case PIEEXPLOSION:
         selectedGlyph = GlyphType.BAR;
-        statusText = "Bar Glyphs.";
         break;
       case BAR:
         selectedGlyph = GlyphType.STAR;
-        statusText = "Star Glyphs.";
         break;
     }
+    statusText = "Changed glyph type to " + selectedGlyph.toString();
   }
   if (key == '+') {
     numDataItems++;
