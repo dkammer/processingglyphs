@@ -62,7 +62,11 @@ color getColor(color[] colors, int i) {
   i = i % 20;  // we only generate up to 20 random colors
   if (colors == null || colors.length - 1 < i) {
     if (randomColors[i] == 0) {
-      randomColors[i] = hsv_to_rgb(random(1), 0.6, 0.95);
+      float golden_ratio_conjugate = 0.618033988749895;
+      float h = random(1);
+      h += golden_ratio_conjugate;
+      h %= 1;
+      randomColors[i] = hsv_to_rgb(h, 0.7, 0.95);
     }
     c = randomColors[i];
   } else {
