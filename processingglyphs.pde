@@ -8,7 +8,8 @@ boolean drawAxes = true;
 boolean newValues = true;
 boolean pause = false;
 boolean start = true;
-int numDataItems = 3;
+boolean showStatusbar = true;
+int numDataItems = 1;
 int startTime = millis();
 int waitTime = 1200;
 GlyphType selectedGlyph = GlyphType.STAR;
@@ -24,7 +25,7 @@ void drawStatusbar() {
   noStroke();
   rect(0,700,700,40);
   fill(240,240,240);
-  text("[p] Pause [r] Record [g] Glyphs [c] Colors [a] Axis [+][-] Items [UP][DOWN] Speed [SPACE] Quit", 8, 716);
+  text("[p] Pause [r] Record [g] Glyphs [c] Colors [a] Axes [+][-] Items [UP][DOWN] Speed [h] Hide Status [SPACE] Quit", 8, 716);
   text(":: " + statusText, 8, 733);
 }
 
@@ -66,6 +67,9 @@ void draw() {
     case FLOWER:
       flowerGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
+    case PIE:
+      pieGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      break;
     case BAR:
       barGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
@@ -81,13 +85,17 @@ void draw() {
     }
   }
   if (record) endRecord();
-  drawStatusbar();
+  if (showStatusbar) drawStatusbar();
 }
 
 void keyPressed() { 
   if (key == 'r') {
     record = !record;
     statusText = record ? "Started recording PDF files for each frame." : "Stopping recording of PDF files.";
+  }
+  if (key == 'h') {
+    showStatusbar = !showStatusbar;
+    statusText = showStatusbar ? "Showing status bar." : "Hiding status bar.";
   }
   if (key == 'a') {
     drawAxes = !drawAxes;
@@ -99,19 +107,32 @@ void keyPressed() {
     }
     hue = random(1);
   }
+  if (key >= 0x30 && key <= 0x39) {
+    int num = Integer.parseInt(""+key);
+    if(num > 0 && num < 6) selectedGlyph = GlyphType.values()[num-1];
+  }
   if (key == 'g') {
-    if (selectedGlyph == GlyphType.STAR) {
-      selectedGlyph = GlyphType.PIEEXPLOSION;
-      statusText = "Pie Explosion Glyphs.";
-    } else if (selectedGlyph == GlyphType.FLOWER) {
-      selectedGlyph = GlyphType.STAR;
-      statusText = "Star Glyphs.";
-    } else if (selectedGlyph == GlyphType.BAR) {
-      selectedGlyph = GlyphType.FLOWER;
-      statusText = "Flower Glyphs.";
-    } else if (selectedGlyph == GlyphType.PIEEXPLOSION) {
-      selectedGlyph = GlyphType.BAR;
-      statusText = "Bar Glyphs.";
+    switch (selectedGlyph) {
+      case STAR:
+        selectedGlyph = GlyphType.FLOWER;
+        statusText = "Flower Glyphs.";
+        break;
+      case FLOWER:
+        selectedGlyph = GlyphType.PIE;
+        statusText = "Pie Glyphs.";
+        break;
+      case PIE:
+        selectedGlyph = GlyphType.PIEEXPLOSION;
+        statusText = "Pie Explosion Glyphs.";
+        break;
+      case PIEEXPLOSION:
+        selectedGlyph = GlyphType.BAR;
+        statusText = "Bar Glyphs.";
+        break;
+      case BAR:
+        selectedGlyph = GlyphType.STAR;
+        statusText = "Star Glyphs.";
+        break;
     }
   }
   if (key == '+') {
