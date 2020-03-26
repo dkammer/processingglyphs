@@ -43,7 +43,7 @@ color scaleColor(float val, float maxVal, color c) {
   float h = hsv[0];
   float s = hsv[1];
   float v = hsv[2];
-  float scale = map(val, maxVal, 0, s + s/2, s - s/2);
+  float scale = map(val, maxVal, 0, 1, 0);
   color rgb = hsv2rgb(h,scale,v);
   return color(red(rgb), green(rgb), blue(rgb), alpha(c));
 }
