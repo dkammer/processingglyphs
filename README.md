@@ -65,7 +65,7 @@ If you provide multiple data points to display in one glyph, you can provide an 
 
 ## Usage and Example
 
-Simply add the PDE files for the glyphs you want to use in your Processing sketch and you can begin drawing. You can also clear the draw() function in the example sketch provided in this repository. See this smaller example below on how to use the glyph functions:
+Simply add the PDE files for the glyphs (and the helper functions) you want to use in your Processing sketch and you can begin drawing. You can also clear the draw() function in the example sketch provided in this repository. See this smaller example below on how to use the glyph functions:
 
 ```java
 void setup() { 
@@ -103,6 +103,6 @@ void draw() {
   * Add possibility to print a legend for the dimensions
   * Create class for glyph configuration
   * Create class for reading CSV data and displaying glyphs
-  * Display hotkeys in demo program
+  * <strike>Display hotkeys in demo program</strike>
   * <strike>Make transparency configurable</strike>
   * <strike>Remove busy wait from demo program</strike>

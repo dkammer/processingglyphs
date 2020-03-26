@@ -33,7 +33,7 @@ float[] rgb2hsv(color c) {
   }
   if (h<0) h += 6;
   if (v==0) n = 0; else n = n/v;
-  
+
   float[] result = { 60*h, n, v };
   return result;
 } 
@@ -61,7 +61,10 @@ color getColor(color[] colors, int i) {
     if (randomColors[i] == 0) {
       hue += golden_ratio_conjugate;
       hue %= 1;
-      randomColors[i] = hsv2rgb(hue*360, 0.7, 0.95);
+      c = hsv2rgb(hue*360, 0.7, 0.95);
+      randomColors[i] = c;
+      // only needed for demo program!
+      statusText = "Generated random color("+(int)red(c)+","+(int)green(c)+","+(int)blue(c)+").";
     }
     c = randomColors[i];
   } else {

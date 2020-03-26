@@ -13,9 +13,19 @@ int startTime = millis();
 int waitTime = 1200;
 GlyphType selectedGlyph = GlyphType.STAR;
 List<List<float[]>> valuesList = new ArrayList<List<float[]>>();
+String statusText = "";
 
 void setup() { 
-  size(700, 700);
+  size(700, 740);
+}
+
+void drawStatusbar() {
+  fill(80,80,80);
+  noStroke();
+  rect(0,700,700,40);
+  fill(240,240,240);
+  text("[p] Pause [r] Record [g] Glyphs [c] Colors [a] Axis [+][-] Items [UP][DOWN] Speed [SPACE] Quit", 8, 716);
+  text(":: " + statusText, 8, 733);
 }
 
 void draw() {
@@ -40,7 +50,7 @@ void draw() {
   if (!pause) { 
       valuesList.clear();
   }
-  for (int stars = 0; stars < 50; stars++) { 
+  for (int stars = 0; stars < 49; stars++) { 
     if (!pause) { 
       List<float[]> values = new ArrayList<float[]>();      
       for (int i = 0; i < numDataItems; i++) {
@@ -71,14 +81,17 @@ void draw() {
     }
   }
   if (record) endRecord();
+  drawStatusbar();
 }
 
 void keyPressed() { 
   if (key == 'r') {
     record = !record;
+    statusText = record ? "Started recording PDF files for each frame." : "Stopping recording of PDF files.";
   }
   if (key == 'a') {
     drawAxes = !drawAxes;
+    statusText = drawAxes ? "Showing axes in glyphs." : "Hiding axes in glyphs.";
   }
   if (key == 'c') {
     for (int i = 0; i < randomColors.length; i++) {
@@ -88,24 +101,31 @@ void keyPressed() {
   if (key == 'g') {
     if (selectedGlyph == GlyphType.STAR) {
       selectedGlyph = GlyphType.PIEEXPLOSION;
+      statusText = "Pie Explosion Glyphs.";
     } else if (selectedGlyph == GlyphType.FLOWER) {
       selectedGlyph = GlyphType.STAR;
+      statusText = "Star Glyphs.";
     } else if (selectedGlyph == GlyphType.BAR) {
       selectedGlyph = GlyphType.FLOWER;
+      statusText = "Flower Glyphs.";
     } else if (selectedGlyph == GlyphType.PIEEXPLOSION) {
       selectedGlyph = GlyphType.BAR;
+      statusText = "Bar Glyphs.";
     }
   }
   if (key == '+') {
     numDataItems++;
     pause = false;
+    statusText = "Showing "+ numDataItems + " data items in each glyph and unpaused item generation.";
   }
   if (key == '-' && numDataItems > 1) {
     numDataItems--;
     pause = false;
+    statusText = "Showing "+ numDataItems + " data items in each glyph and unpaused item generation.";
   }
   if (key == 'p') {
     pause = !pause;
+    statusText = pause ? "Paused." : "Unpaused.";
   }
   if (key == CODED) {
     if (keyCode == DOWN && waitTime > 200) {
@@ -113,6 +133,7 @@ void keyPressed() {
     } else if (keyCode == UP) {
       waitTime += 100;
     } 
+    statusText = "Speed changed to " + waitTime + " milliseconds.";
   }
   start = true;
   if (key == ' ') {
