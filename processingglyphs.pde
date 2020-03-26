@@ -97,6 +97,7 @@ void keyPressed() {
     for (int i = 0; i < randomColors.length; i++) {
       randomColors[i] = 0;
     }
+    hue = random(1);
   }
   if (key == 'g') {
     if (selectedGlyph == GlyphType.STAR) {
