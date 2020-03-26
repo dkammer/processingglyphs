@@ -4,6 +4,46 @@ enum GlyphType {
   STAR, FLOWER, BAR, PIEEXPLOSION
 };
 
+color hsv_to_rgb(float h, float s, float v) {
+  float r = 0, g = 0, b = 0;
+  int h_i = (int) (h*6);
+  float f = h*6 - h_i;
+  float p = v * (1 - s);
+  float q = v * (1 - f*s);
+  float t = v * (1 - (1 - f) * s);
+  if (h_i == 0) {
+    r = v;
+    g = t;
+    b = p;
+  }
+  if (h_i == 1) {
+    r = q;
+    g = v;
+    b = p;
+  }  
+  if (h_i == 2) {
+    r = p;
+    g = v;
+    b = t;
+  }  
+  if (h_i == 3) {
+    r = p;
+    g = q;
+    b = v;
+  }  
+  if (h_i == 4) {
+    r = t;
+    g = p;
+    b = v;
+  }  
+  if (h_i == 5) {
+    r = v;
+    g = p;
+    b = q;
+  }
+  return color((int)(r*256), (int)(g*256), (int)(b*256));
+}
+
 color scaleColor(float val, float maxVal, color c) {
   int r = (int) map(val, maxVal, 0, red(c) / 1.5, red(c));
   int g = (int) map(val, maxVal, 0, green(c) / 1.5, green(c));
@@ -19,9 +59,10 @@ void drawAxis(float lineLength) {
 
 color getColor(color[] colors, int i) {
   color c;
+  i = i % 20;  // we only generate up to 20 random colors
   if (colors == null || colors.length - 1 < i) {
     if (randomColors[i] == 0) {
-      randomColors[i] = color(random(255), random(255), random(255));
+      randomColors[i] = hsv_to_rgb(random(1), 0.6, 0.95);
     }
     c = randomColors[i];
   } else {
