@@ -2,15 +2,25 @@
 
 Small glyph library for Processing.
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" width="600">
+## Glyphs
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" width="600">
+Currently supported glyph types:
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" width="600">
+   * Star
+   * Flower
+   * Bar
+   * Pie
+   * Pie Explosion
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/pieglyphs.png" alt="Pie Glyphs" width="600">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" width="500">
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Pie Explosion Glyphs" width="600">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" width="500">
+
+<img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" width="500">
+
+<img src="https://github.com/dkammer/processingglyphs/raw/master/pieglyphs.png" alt="Pie Glyphs" width="500">
+
+<img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Pie Explosion Glyphs" width="500">
 
 ## Installation and Running
 
@@ -102,10 +112,15 @@ void draw() {
 
 ## TODO
 
-  * Add more glyphs (pie charts, etc.)
+  * Add ring glyphs
+  * Add whisker glyphs
+  * Add radial bar glyphs
   * Add possibility to print a legend for the dimensions
   * Create class for glyph configuration
   * Create class for reading CSV data and displaying glyphs
+  * <strike>Add pie glyphs</strike>
+  * <strike>Add pie explosion glyphs</strike>
+  * <strike>Add bar glyphs</strike>
   * <strike>Display hotkeys in demo program</strike>
   * <strike>Make transparency configurable</strike>
   * <strike>Remove busy wait from demo program</strike>
