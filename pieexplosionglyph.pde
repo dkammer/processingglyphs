@@ -26,9 +26,9 @@ void pieexplosionGlyph(float originX, float originY, float lineLength, float[] m
       float line = map(val[i], minValues[i], maxValues[i], 0, lineLength * 2);
 
       noStroke();
-      fill(scaleColor(line, lineLength * 2, c));
+      fill(scaleColor(line, lineLength * 2, c), Math.max(45, 255 - j * 30));
       arc(0, 0, line, line, radians(-angle/2), radians(angle/2));
     }
     popMatrix();
   }    
-}
+} 

@@ -27,7 +27,7 @@ void flowerGlyph(float originX, float originY, float lineLength, float[] minValu
       strokeWeight(0.5);
       stroke(c);
 
-      fill(scaleColor(line, lineLength, c));
+      fill(scaleColor(line, lineLength, c), Math.max(45, 255 - j * 30));
       beginShape();    
 
       curveVertex(0, 0); // 1

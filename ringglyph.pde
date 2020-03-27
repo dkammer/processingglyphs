@@ -31,9 +31,9 @@ void ringGlyph(float originX, float originY, float lineLength, float[] minValues
       color c = getColor(colors, j);
       float[] val = values.get(j);
       float angle = map(val[i], minValues[i], maxValues[i], 0, 360);
-      stroke(scaleColor(angle, 360, c));
-      arc(0, 0, r, r, 0, radians(angle));
-      popMatrix();
-     }
+      stroke(scaleColor(angle, 360, c), Math.max(45, 255 - j * 30));
+      arc(0, 0, r, r, 0, radians(angle));      
+    }
+    popMatrix();
   }    
 } 

@@ -30,7 +30,7 @@ void barGlyph(float originX, float originY, float lineLength, float[] minValues,
       float line = map(val[i], minValues[i], maxValues[i], 0, lineLength * 2);
       noStroke();
       strokeWeight(0.75);
-      fill(scaleColor(line, lineLength * 2, c));      
+      fill(scaleColor(line, lineLength * 2, c), Math.max(45, 255 - j * 30));      
       rect(x, startY - line, barWidth, line); 
     }
   }

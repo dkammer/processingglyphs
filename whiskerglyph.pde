@@ -24,7 +24,7 @@ void whiskerGlyph(float originX, float originY, float lineLength, float[] minVal
       float line = map(val[i], minValues[i], maxValues[i], 0, lineLength);
       strokeWeight(lineLength/10);
       strokeCap(SQUARE);
-      stroke(scaleColor(line, lineLength, c));
+      stroke(scaleColor(line, lineLength, c), Math.max(45, 255 - j * 30));
       line(0,0,line,0);
     }
 

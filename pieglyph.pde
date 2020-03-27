@@ -20,7 +20,7 @@ void pieGlyph(float originX, float originY, float lineLength, float[] minValues,
     for (int j = 0; j < numDimensions; j++) {
       float angle = map(val[j], minValues[j], maxValues[j], 0, lineLength);
       noStroke();
-      fill(scaleColor(angle, lineLength, c));
+      fill(scaleColor(angle, lineLength, c), Math.max(45, 255 - i * 30));
       arc(originX, originY, lineLength * 2, lineLength * 2, lastAngle, lastAngle + radians(angle * 360 / sum));
       lastAngle += radians(angle * 360 / sum) % 360;
     }
