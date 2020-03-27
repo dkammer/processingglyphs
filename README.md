@@ -110,6 +110,8 @@ void draw() {
 
 ## TODO
 
+  * Change axes system for pie explosion glyph
+  * Implement categorical color scale for glyphs
   * Add radial bar glyphs
   * Add possibility to print a legend for the dimensions
   * Create class for glyph configuration
