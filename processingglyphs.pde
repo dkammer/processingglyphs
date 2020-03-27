@@ -79,6 +79,9 @@ void draw() {
     case WHISKER:
       whiskerGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
+    case RING:
+      ringGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      break;
     }
     xo += 2 * (glyphSize + padding);
     if (columnCount++ % maxColumns == 0) {

@@ -12,10 +12,13 @@ Currently supported glyph types:
    * Pie
    * Pie Explosion
    * Whisker
+   * Ring 
 
 <img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" height="150">
 
 <img src="https://github.com/dkammer/processingglyphs/raw/master/pieglyphs.png" alt="Pie Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Pie Explosion Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/whiskerglyphs.png" alt="Whisker Glyphs" height="150">
+
+<img src="https://github.com/dkammer/processingglyphs/raw/master/ringglyphs.png" alt="Ring Glyphs" height="150">
 
 ## Installation and Running
 
@@ -107,12 +110,12 @@ void draw() {
 
 ## TODO
 
-  * Add ring glyphs
-  * Add whisker glyphs
   * Add radial bar glyphs
   * Add possibility to print a legend for the dimensions
   * Create class for glyph configuration
   * Create class for reading CSV data and displaying glyphs
+  * <strike>Add ring glyphs</strike>
+  * <strike>Add whisker glyphs</strike>
   * <strike>Add pie glyphs</strike>
   * <strike>Add pie explosion glyphs</strike>
   * <strike>Add bar glyphs</strike>
