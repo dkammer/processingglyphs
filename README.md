@@ -13,11 +13,9 @@ Currently supported glyph types:
    * Pie Explosion
    * Whisker
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" height="150">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" height="150">
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/pieglyphs.png" alt="Pie Glyphs" height="150">
-
-<img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Pie Explosion Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/whiskerglyphs.png" alt="Whisker Glyphs" height="150">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/pieglyphs.png" alt="Pie Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Pie Explosion Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/whiskerglyphs.png" alt="Whisker Glyphs" height="150">
 
 ## Installation and Running
 
