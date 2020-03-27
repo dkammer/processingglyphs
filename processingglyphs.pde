@@ -76,6 +76,9 @@ void draw() {
     case PIEEXPLOSION:
       pieexplosionGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
       break;
+    case WHISKER:
+      whiskerGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      break;
     }
     xo += 2 * (glyphSize + padding);
     if (columnCount++ % maxColumns == 0) {
@@ -109,29 +112,14 @@ void keyPressed() {
   }
   if (key >= 0x30 && key <= 0x39) {
     int num = Integer.parseInt(""+key);
-    if(num > 0 && num < 6) {
+    if(num > 0 && num <= GlyphType.values().length) {
       selectedGlyph = GlyphType.values()[num-1];
       statusText = "Changed glyph type to " + selectedGlyph.toString();
     }
   }
   if (key == 'g') {
-    switch (selectedGlyph) {
-      case STAR:
-        selectedGlyph = GlyphType.FLOWER;
-        break;
-      case FLOWER:
-        selectedGlyph = GlyphType.PIE;
-        break;
-      case PIE:
-        selectedGlyph = GlyphType.PIEEXPLOSION;
-        break;
-      case PIEEXPLOSION:
-        selectedGlyph = GlyphType.BAR;
-        break;
-      case BAR:
-        selectedGlyph = GlyphType.STAR;
-        break;
-    }
+    int newGlyph = (selectedGlyph.ordinal()+1) % GlyphType.values().length;
+    selectedGlyph = GlyphType.values()[newGlyph];
     statusText = "Changed glyph type to " + selectedGlyph.toString();
   }
   if (key == '+') {

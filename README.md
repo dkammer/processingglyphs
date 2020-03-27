@@ -6,21 +6,18 @@ Small glyph library for Processing.
 
 Currently supported glyph types:
 
-   * Star
+   * Star (aka Radar, Spideweb)
    * Flower
    * Bar
    * Pie
    * Pie Explosion
+   * Whisker
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" width="500">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/starglyphs.png" alt="Star Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" height="150">
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/flowerglyphs.png" alt="Flower Glyphs" width="500">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/pieglyphs.png" alt="Pie Glyphs" height="150">
 
-<img src="https://github.com/dkammer/processingglyphs/raw/master/barglyphs.png" alt="Bar Glyphs" width="500">
-
-<img src="https://github.com/dkammer/processingglyphs/raw/master/pieglyphs.png" alt="Pie Glyphs" width="500">
-
-<img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Pie Explosion Glyphs" width="500">
+<img src="https://github.com/dkammer/processingglyphs/raw/master/pieexplosionglyphs.png" alt="Pie Explosion Glyphs" height="150"> <img src="https://github.com/dkammer/processingglyphs/raw/master/whiskerglyphs.png" alt="Whisker Glyphs" height="150">
 
 ## Installation and Running
 
@@ -74,7 +71,7 @@ color[] colors  // or: color c
 boolean drawAxes
 ```
 
-If you provide multiple data points to display in one glyph, you can provide an array of different colors or a single color if you only pass the values of a single data item. Otherwise, random colors are chosen. You can also specify whether to show axes or not. 
+If you provide multiple data points to display in one glyph, you can provide an array of different colors or a single color if you only pass the values of a single data item. Otherwise, random colors are chosen. If you provide *null* as parameter for the color random color will be chosen. You can also specify whether to show axes or not. Note that not every glyph type supports axes.
 
 ## Usage and Example
 

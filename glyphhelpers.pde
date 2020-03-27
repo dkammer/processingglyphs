@@ -3,7 +3,7 @@ float golden_ratio_conjugate = 0.618033988749895;
 float hue = random(1);
 
 enum GlyphType { 
-  STAR, FLOWER, PIE, PIEEXPLOSION, BAR
+  STAR, FLOWER, PIE, PIEEXPLOSION, BAR, WHISKER
 };
 
 color hsv2rgb(float h, float s, float v) {
