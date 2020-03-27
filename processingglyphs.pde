@@ -10,6 +10,7 @@ boolean pause = false;
 boolean start = true;
 boolean showStatusbar = true;
 int numDataItems = 1;
+int numDimensions = 9;
 int startTime = millis();
 int waitTime = 1200;
 GlyphType selectedGlyph = GlyphType.STAR;
@@ -25,8 +26,17 @@ void drawStatusbar() {
   noStroke();
   rect(0,660,700,40);
   fill(240,240,240);
-  text("[p] Pause [r] Record [g] Glyphs [c] Colors [a] Axes [+][-] Items [UP][DOWN] Speed [h] Hide Status [SPACE] Quit", 8, 676);
+  text("[p] Pause [r] Record [g] Glyphs [c] Colors [a] Axes [+][-] Items [UP][DOWN] Dimensions [h] Hide Status [SPACE] Quit", 8, 676);
   text(":: " + statusText, 8, 693);
+}
+
+float[] convertArray(List<Float> list) {
+  float[] arr = new float[list.size()];
+  int index = 0;
+  for (Float value : list) {
+    arr[index++] = value;
+  }
+  return arr;
 }
 
 void draw() {
@@ -45,42 +55,49 @@ void draw() {
   int maxColumns = (int) (700 / (2 * (glyphSize + padding)));
   xo = glyphSize + padding; 
   yo = glyphSize + padding;
-  float[] min = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-  float[] max = { 10, 10, 10, 10, 10, 10, 10, 10, 10};
+  List<Float> min = new ArrayList<Float>();
+  List<Float> max = new ArrayList<Float>();
+  for (int i = 0; i < numDimensions; i++) {
+    min.add(0.0);
+    max.add(10.0);
+  }
   int columnCount = 1;
   if (!pause) { 
       valuesList.clear();
   }
   for (int stars = 0; stars < 49; stars++) { 
     if (!pause) { 
-      List<float[]> values = new ArrayList<float[]>();      
+      List<float[]> values = new ArrayList<float[]>();
       for (int i = 0; i < numDataItems; i++) {
-        float[] vals = { random(10), random(10), random(10), random(10), random(10), random(10), random(10), random(10), random(10) };
-        values.add(vals);
+        List<Float> vals = new ArrayList<Float>();
+        for (int j = 0; j < numDimensions; j++) {
+          vals.add(random(10));
+        }
+        values.add(convertArray(vals));
       }
       valuesList.add(values);
     }
     switch (selectedGlyph) {
     case STAR:
-      starGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      starGlyph(xo, yo, glyphSize, convertArray(min), convertArray(max), valuesList.get(stars), null, drawAxes);
       break;
     case FLOWER:
-      flowerGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      flowerGlyph(xo, yo, glyphSize, convertArray(min), convertArray(max), valuesList.get(stars), null, drawAxes);
       break;
     case PIE:
-      pieGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      pieGlyph(xo, yo, glyphSize, convertArray(min), convertArray(max), valuesList.get(stars), null, drawAxes);
       break;
     case BAR:
-      barGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      barGlyph(xo, yo, glyphSize, convertArray(min), convertArray(max), valuesList.get(stars), null, drawAxes);
       break;
     case PIEEXPLOSION:
-      pieexplosionGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      pieexplosionGlyph(xo, yo, glyphSize, convertArray(min), convertArray(max), valuesList.get(stars), null, drawAxes);
       break;
     case WHISKER:
-      whiskerGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      whiskerGlyph(xo, yo, glyphSize, convertArray(min), convertArray(max), valuesList.get(stars), null, drawAxes);
       break;
     case RING:
-      ringGlyph(xo, yo, glyphSize, min, max, valuesList.get(stars), null, drawAxes);
+      ringGlyph(xo, yo, glyphSize, convertArray(min), convertArray(max), valuesList.get(stars), null, drawAxes);
       break;
     }
     xo += 2 * (glyphSize + padding);
@@ -140,12 +157,13 @@ void keyPressed() {
     statusText = pause ? "Paused." : "Unpaused.";
   }
   if (key == CODED) {
-    if (keyCode == DOWN && waitTime > 200) {
-      waitTime -= 100;
+    if (keyCode == DOWN && numDimensions > 3) {
+      numDimensions--;
     } else if (keyCode == UP) {
-      waitTime += 100;
+      numDimensions++;
     } 
-    statusText = "Speed changed to " + waitTime + " milliseconds.";
+    statusText = "Changed number of dimensions to " + numDimensions + " and unpaused item generation.";
+    pause = false;
   }
   start = true;
   if (key == ' ') {

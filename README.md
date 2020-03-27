@@ -36,7 +36,7 @@ Inside the main sketch, random data is created to showcase the glyphs.
    * Pressing 'a' will switch between showing axes and hiding them. 
    * Using '+' and '-' you can increase and decrease the amount of data items shown in one glyph. 
    * Press 'p' to pause the program by stopping to create new data items. This is useful to compare glyph types for the same data. Press 'p' again to continue.
-   * Pressing UP and DOWN on the keyboard will make the regeneration of glyphs faster or slower.
+   * Pressing UP and DOWN on the keyboard will increase the number of dimensions shown in each glyph.
    * Hit space bar to terminate the demo program.
 
 ## API
